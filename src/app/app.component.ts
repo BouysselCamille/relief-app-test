@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-mean-crud-tutorial';
+  videoURL: string = '';
+
+  public displayVideo(videoURL: string) {
+    this.videoURL = videoURL;
+    console.log(videoURL);
+  }
 }

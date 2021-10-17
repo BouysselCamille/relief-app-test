@@ -7,8 +7,10 @@
     <history></history>
   </div>
   <div class="col-md-8">
-    <search-bar></search-bar>
-    <video-view></video-view>
+    <search-bar (onVideoSelected)="displayVideo($event)"></search-bar>
+    <div *ngIf="videoURL">
+      <video-view [videoURL]="videoURL"></video-view>
+    </div>
   </div>
 
 </div>

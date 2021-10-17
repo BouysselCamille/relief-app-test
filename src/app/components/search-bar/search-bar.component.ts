@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CrudService } from './../../service/crud.service';
 import { FormGroup, FormBuilder } from "@angular/forms";
 
@@ -8,6 +8,7 @@ import { FormGroup, FormBuilder } from "@angular/forms";
 })
 
 export class SearchBarComponent implements OnInit {
+  @Output() onVideoSelected = new EventEmitter<any>();
 
   videoForm: FormGroup;
   
@@ -26,6 +27,7 @@ export class SearchBarComponent implements OnInit {
     this.crudService.AddVideo(this.videoForm.value)
     .subscribe(() => {
         console.log('Data added successfully!')
+        this.onVideoSelected.emit(this.videoForm.value.url)
       }, (err) => {
         console.log(err);
     });
