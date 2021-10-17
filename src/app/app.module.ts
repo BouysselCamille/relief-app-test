@@ -6,9 +6,9 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { AddBookComponent } from './components/add-book/add-book.component';
-import { BookDetailComponent } from './components/book-detail/book-detail.component';
-import { BooksListComponent } from './components/books-list/books-list.component';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { HistoryComponent } from './components/history/history.component';
+import { VideoViewComponent } from './components/video-view/video-view.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -16,9 +16,9 @@ import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
-    AddBookComponent,
-    BookDetailComponent,
-    BooksListComponent
+    HistoryComponent,
+    SearchBarComponent,
+    VideoViewComponent
   ],
   imports: [
     BrowserModule,
