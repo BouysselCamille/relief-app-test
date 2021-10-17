@@ -3,7 +3,13 @@
     <h2 class="h2">History</h2>
   </div>
 
-  <div *ngFor="let video of Videos; let i = index">
-    <li>{{ video.url }}</li>
+  <div class="list-group">
+    <a *ngFor="let video of Videos; let i = index"
+       href="#"
+       class="list-group-item list-group-item-action waves-light"
+       (click)="selectVideo(video.url)"
+        mdbWavesEffect>
+      {{ video.url }}
+    </a>
   </div>
 </div>

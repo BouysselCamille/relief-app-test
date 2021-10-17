@@ -3,8 +3,8 @@
 </nav>
 
 <div class="row">
-  <div class="col-md-4">
-    <history></history>
+  <div class="col-md-4 vh-100 overflow-auto">
+    <history (onVideoSelected)="displayVideo($event)"></history>
   </div>
   <div class="col-md-8">
     <search-bar (onVideoSelected)="displayVideo($event)"></search-bar>

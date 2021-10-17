@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CrudService } from './../../service/crud.service';
 
 @Component({
@@ -7,6 +7,7 @@ import { CrudService } from './../../service/crud.service';
 })
 
 export class HistoryComponent implements OnInit {
+  @Output() onVideoSelected = new EventEmitter<any>();
   
   Videos:any = [];
 
@@ -17,6 +18,10 @@ export class HistoryComponent implements OnInit {
       console.log(res)
       this.Videos =res;
     });    
+  }
+
+  public selectVideo(url: string) {
+    this.onVideoSelected.emit(url);
   }
 
 }
