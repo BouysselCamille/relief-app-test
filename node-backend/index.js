@@ -19,6 +19,7 @@ mongoose.connect(mongoDb.db, {
 )
 
 const videoRoute = require('./routes/video.routes')
+const bookmarkRoute = require('./routes/bookmark.routes')
 
 const app = express();
 app.use(bodyParser.json());
@@ -33,6 +34,7 @@ app.use(express.static(path.join(__dirname, 'dist/angular-mean-crud-tutorial')))
 
 // API root
 app.use('/api', videoRoute)
+app.use('/api', bookmarkRoute)
 
 // PORT
 const port = process.env.PORT || 8000;

@@ -12,10 +12,12 @@ import { VideoViewComponent } from './components/video-view/video-view.component
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { BookmarksComponent } from './components/bookmarks/bookmarks.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    BookmarksComponent,
     HistoryComponent,
     SearchBarComponent,
     VideoViewComponent

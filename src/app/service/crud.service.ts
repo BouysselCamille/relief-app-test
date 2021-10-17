@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Bookmark } from './Bookmark';
 import { Video } from './Video';
 import { catchError, map } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
@@ -29,7 +30,21 @@ export class CrudService {
 
   // Get all objects
   GetVideos() {
-    return this.httpClient.get(`${this.REST_API}`);
+    return this.httpClient.get(`${this.REST_API}/videos`);
+  }
+
+  // Add
+  AddBookmark(data: Bookmark): Observable<any> {
+    let API_URL = `${this.REST_API}/add-bookmark`;
+    return this.httpClient.post(API_URL, data)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
+
+  // Get all objects
+  GetBookmarks() {
+    return this.httpClient.get(`${this.REST_API}/bookmarks`);
   }
 
   // Error 

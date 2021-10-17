@@ -4,12 +4,18 @@
 
 <div class="row">
   <div class="col-md-4 vh-100 overflow-auto">
-    <history (onVideoSelected)="displayVideo($event)"></history>
+    <history *ngIf="!isBookmarksVisible; else showBookmarks" class="px-2" (onVideoSelected)="displayVideo($event)"></history>
+    <bookmarks *ngIf="isBookmarksVisible" class="px-2" (onBookmarkSelected)="displayVideo($event)"></bookmarks>
   </div>
   <div class="col-md-8">
+    <button type="button" class="btn btn-primary float-right m-2" (click)="showBookmarks()">
+      <div *ngIf="!isBookmarksVisible">Bookmarks <span class="badge badge-light">{{ totalBookmarks }}</span></div>
+      <div *ngIf="isBookmarksVisible">History</div>
+    </button>
     <search-bar (onVideoSelected)="displayVideo($event)"></search-bar>
     <div *ngIf="videoURL">
       <video-view [videoURL]="videoURL"></video-view>
+      <button class= "btn btn-primary" (click)="saveVideo()">Save as bookmark</button>
     </div>
   </div>
 

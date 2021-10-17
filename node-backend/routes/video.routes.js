@@ -16,7 +16,7 @@ videoRoute.route('/add-video').post((req, res, next) => {
 });
 
 // Get All Video
-videoRoute.route('/').get((req, res) => {
+videoRoute.route('/videos').get((req, res) => {
     Video.find((error, data) => {
     if (error) {
       return next(error)
